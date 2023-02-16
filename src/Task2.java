@@ -8,6 +8,9 @@ public class Task2 {
         int[][] matrix = {{2, 6, 4, 2},
                 {7, 2, 3, 1},
                 {5, 3, 7, 5}};
+        System.out.println("Исходная матрица:");
+        printMatrix(matrix);
+
         p = new double[matrix.length];
         q = new double[matrix[0].length];
 
@@ -72,6 +75,8 @@ public class Task2 {
                     int[] secondColumn = getColumn(matrix, j);
                     if (isFirstLessThenSecond(firstColumn, secondColumn)) {
                         matrix = delColFromMatrix(matrix, j);
+                        System.out.println("Сокращенная матрица:");
+                        printMatrix(matrix);
                         q[j + coef] = 0;
                         coef += 1;
                     }
@@ -133,6 +138,8 @@ public class Task2 {
                     if (isFirstMoreThenSecond(firstLine, secondLine)) {
                         if (matrix.length > 2) {
                             matrix = delLineFromMatrix(matrix, j);
+                            System.out.println("Сокращенная матрица:");
+                            printMatrix(matrix);
                             p[j] = 0;
                         }
                     }
@@ -148,14 +155,5 @@ public class Task2 {
             result[i] = matrix[i][index];
         }
         return result;
-    }
-
-    public static int[][] cloneMatrix(int[][] martrix) {
-        int[][] clone = new int[martrix.length][];
-        int count = 0;
-        for (int[] line : martrix) {
-            clone[count++] = line.clone();
-        }
-        return clone;
     }
 }

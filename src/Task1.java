@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Task1 {
     private static int lineCoord;
     private static int columnCoord;
@@ -13,11 +15,13 @@ public class Task1 {
 
         int[] minsByLines = getMins(matrix);
         int[] maxsByColumns = getMaxs(matrix);
+        System.out.println("Минимумы по строкам: "+ Arrays.toString(minsByLines));
+        System.out.println("Максимумы по столбцам: "+Arrays.toString(maxsByColumns));
 
         int alpha = getMaxInArray(minsByLines);
         int beta = getMinInArray(maxsByColumns);
 
-        System.out.println("Нижняя цена игры: " + alpha + "\nВерхняя цена игры:  " + beta + "\n");
+        System.out.println("\nНижняя цена игры: " + alpha + "\nВерхняя цена игры:  " + beta + "\n");
 
         if (alpha == beta) {
             System.out.println("Координаты седловой точки: [" + lineCoord + ", " + columnCoord + "]");
